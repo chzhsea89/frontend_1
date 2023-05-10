@@ -1,265 +1,207 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css"
-    />
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css">
+  <title>파타고니아</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
 
-    <title>파타고니아</title>
-    <style>
-      @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap");
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Noto Sans KR', sans-serif;
+    }
+    .gnb {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: white;
+    }
+    .gnb > .top {
+      width: 100%;
 
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        font-family: "Noto Sans KR", sans-serif;
-      }
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 15px;
 
-      .gnb > .top {
-        width: 100%;
+      background-color: #500778;
+      height: 50px;
 
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: flex-end;
-        gap: 15px;
+      padding: 0px 20px;
+    }
 
-        background-color: #500778;
-        height: 50px;
+    .gnb > .top > a, .gnb > .top > span {
+      color: white;
+    }
 
-        padding: 0px 20px;
-      }
+    .gnb > .top > a {
+      text-decoration: none;
+    }
 
-      .gnb > .top > a,
-      .gnb > .top > span {
-        color: white;
-      }
+    .gnb > .bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
 
-      .gnb > .top > a {
-        text-decoration: none;
-      }
+      padding: 0px 20px;
 
-      .gnb > .bottom {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 0px 20px;
-        height: 70px;
-      }
+      height: 70px;
+    }
 
-      .gnb > .bottom > .left {
-        display: flex;
-        align-items: center;
-        gap: 40px;
-      }
+    .gnb > .bottom > .left {
+      display: flex;
+      align-items: center;
+      gap: 40px;
+    }
 
-      .gnb > .bottom > .left > img {
-        width: 130px;
-      }
-      .left > span {
-        font-weight: 900;
-        font: 20px; 
-      }
-      .left > input {
-        width: 500px;
-        height: 40px;
-        padding: 8px 12px;
-        font-size: 16px;
-      }
+    .gnb > .bottom > .left > img {
+      width: 130px;
+    }
 
-      .iconWrapper {
-        display: flex;
-        align-items: center;
-        gap: 20px;
-      }
+    .left > span {
+      font-weight: 900;
+      font: 20px;
+      cursor: pointer;
+    }
 
-      .iconWrapper > i {
-        font-size: 24px;
-      }
+    .left > input {
+      width: 500px;
+      height: 40px;
+      padding: 8px 12px;
 
-      .imageBox > img {
-        width: 100%;
-      }
-      .list-group > span {
-        font-size: 24px;
-        margin-left: 15px;
-      }
-      .list-group-flush > .list-group-item {
-        border-width: 0 0 1px;
-      }
-      .list-group-item {
-        list-style: none;
-        font-size: 17px;
-      }
-      .list-group-item {
-        position: relative;
-        display: block;
-        padding: 0.5rem 1rem;
-        color: #212529;
-        text-decoration: none;
-        background-color: #fff;
-        border: 1px solid rgba(0, 0, 0, 0.125);
-      }
-      .items {
-        display: flex;
-        flex-direction: row;
-        align-items: flex-start;
-        justify-content: space-between;
-        padding: 30px;
-        width: 100%;
-      }
-      .imgs {
-        display: flex;
-        flex-direction: row;
-        align-items: flex-start;
-        justify-content: center;
-        margin-left: 100px;
-        margin-right: auto;
-      }
-      .card-img,
-      .card-img-top {
-        border-top-left-radius: calc(0.25rem - 1px);
-        border-top-right-radius: calc(0.25rem - 1px);
-      }
-      .card-img,
-      .card-img-bottom,
-      .card-img-top {
-        width: 100%;
-      }
+      font-size: 16px;
+    }
 
-      img,
-      svg {
-        vertical-align: middle;
-      }
-      .card {
-        position: relative;
-        display: flex;
-        flex-direction: column;
-        min-width: 0;
-        word-wrap: break-word;
-        background-color: #fff;
-        background-clip: border-box;
-        border: 1px solid rgba(0, 0, 0, 0.125);
-        border-radius: 0.25rem;
-      }
-      .card-img,
-      .card-img-top {
-        border-top-left-radius: calc(0.25rem - 1px);
-        border-top-right-radius: calc(0.25rem - 1px);
-      }
+    .iconWrapper {
+      display: flex;
+      align-items: center;
 
-      .card-img,
-      .card-img-bottom,
-      .card-img-top {
-        width: 100%;
-      }
-      * {
-        font-family: "Noto Sans KR", sans-serif;
-      }
-      *,
-      ::after,
-      ::before {
-        box-sizing: border-box;
-      }
-      img {
-        overflow-clip-margin: content-box;
-        overflow: clip;
-      }
-    </style>
-  </head>
-  <body>
-    <div>
-      <div class="gnb">
-        <div class="top">
-          <a href="#">Climate Goals</a>
-          <a href="#">푸른 심장</a>
-          <a href="#">Worn Wear</a>
-          <span>|</span>
-          <a href="#">더보기</a>
-        </div>
-        <div class="bottom">
-          <div class="left">
-            <img
-              src="https://media-sparta.s3.ap-northeast-2.amazonaws.com/media/images/patagonia_main_logo.png"
-            />
-            <span>SHOP</span>
-            <span>INSIDE PATAGONIA</span>
-            <input placeholder="SERCH" />
-          </div>
-          <div class="iconWrapper">
-            <i class="bi bi-question-circle-fill"></i>
-            <i class="bi bi-person-fill"></i>
-            <i class="bi bi-cart-fill"></i>
-          </div>
-        </div>
+      gap: 20px;
+    }
+
+    .iconWrapper > i {
+      font-size: 24px;
+    }
+
+    .imageBox > img {
+      width: 100%;
+      margin-top:100px;
+    }
+
+    .itemBox {
+      padding: 20px 30px;
+      display: flex;
+      gap: 50px;
+    }
+
+    .type-list {
+      /* background-color: green; */
+      width: fit-content;
+    }
+
+    .type-list > .title {
+      font-size: 25px;
+      padding-left: 15px;
+    }
+
+    .type-list > li {
+      list-style: none;
+      font-size: 17px;
+      padding: 8px 15px;
+
+      border-bottom: 1px solid lightgray;
+    }
+
+    .type-list > li:last-child {
+      border-bottom: none;
+    }
+
+    .product-list {
+      display: flex;
+      gap: 15px;
+    }
+
+    .product-list > .card {
+      width: 288px;
+      border: 1px solid lightgray;
+      padding-left: 12px;
+    }
+
+    .product-list > .card > img {
+      width: 100%;
+    }
+
+  </style>
+</head>
+<body>
+  <div>
+    <div class="gnb" >
+      <div class="top" >
+        <a href="#" >Climate Goals</a>
+        <a href="#" >푸른 심장</a>
+        <a href="#" >Worn Wear</a>
+        <span>|</span>
+        <a href="#" >더보기</a>
       </div>
-      <div class="imageBox">
-        <img
-          src="https://media-sparta.s3.ap-northeast-2.amazonaws.com/media/images/patagonia_main_banner.png"
-          alt=""
-        />
-      </div>
-      <div class="items">
-        <ul class="list-group list-group-flush">
-          <span>WOMEN'S</span>
-          <li class="list-group-item">신상품</li>
-          <li class="list-group-item">재킷 &amp; 베스트</li>
-          <li class="list-group-item">플리스</li>
-          <li class="list-group-item">스웨트셔츠 &amp; 후디</li>
-          <li class="list-group-item">셔츠</li>
-          <li class="list-group-item">티셔츠</li>
-          <li class="list-group-item">팬츠 &amp; 레깅스</li>
-          <li class="list-group-item">모자 &amp; 액세서리</li>
-        </ul>
-        <div class="imgs">
-          <div class="card" style="width: 18rem">
-            <img
-              src="https://media-sparta.s3.ap-northeast-2.amazonaws.com/media/images/patagonia_item_1.png"
-              class="card-img-top"
-              alt="..."
-            />
-            <div class="card-body">
-              <p class="card-text">
-                <span>Women Stand Up Overalls</span><br />
-                <span>₩159,000</span>
-              </p>
-            </div>
-          </div>
-          <div class="card" style="width: 18rem">
-            <img
-              src="https://media-sparta.s3.ap-northeast-2.amazonaws.com/media/images/patagonia_item_2.png"
-              class="card-img-top"
-              alt="..."
-            />
-            <div class="card-body">
-              <p class="card-text">
-                <span>Women Ridge Flow Shirt</span><br />
-                <span>₩89,000</span>
-              </p>
-            </div>
-          </div>
-          <div class="card" style="width: 18rem">
-            <img
-              src="https://media-sparta.s3.ap-northeast-2.amazonaws.com/media/images/patagonia_item_3.png"
-              class="card-img-top"
-              alt="..."
-            />
-            <div class="card-body">
-              <p class="card-text">
-                <span>Women All Seasons Hemp Canvas Shorts</span><br />
-                <span>₩119,000</span>
-              </p>
-            </div>
-          </div>
+
+      <div class="bottom" >
+        <div class="left" >
+          <img src="https://media-sparta.s3.ap-northeast-2.amazonaws.com/media/images/patagonia_main_logo.png" />
+          <span>SHOP</span>
+          <span>INSIDE PATAGONIA</span>
+          <input placeholder="Search" />
+        </div>
+
+        <div class="iconWrapper" >
+          <i class="bi bi-question-circle-fill" ></i>
+          <i class="bi bi-person-fill" ></i>
+          <i class="bi bi-cart-fill" ></i>
         </div>
       </div>
     </div>
-  </body>
 
-  <div></div>
+    <div class="imageBox" >
+      <img src="https://media-sparta.s3.ap-northeast-2.amazonaws.com/media/images/patagonia_main_banner.png" />
+    </div>
+
+    <div class="itemBox" >
+      <ul class="type-list" >
+        <span class="title" >WOMEN'S</span>
+        <li>신상품</li>
+        <li>재킷 & 베스트</li>
+        <li>플리스</li>
+        <li>스웨트셔츠 & 후디</li>
+        <li>셔츠</li>
+        <li>티셔츠</li>
+        <li>팬츠 & 레깅스</li>
+        <li >모자 & 액세서리</li>
+      </ul>
+
+      <div class="product-list" >
+        <div class="card" >
+          <img src="https://media-sparta.s3.ap-northeast-2.amazonaws.com/media/images/patagonia_item_1.png" />
+          <span>Women Stand Up Overalls</span> <br/>
+          <span>₩159,000</span>
+        </div>
+        <div class="card" >
+          <img src="https://media-sparta.s3.ap-northeast-2.amazonaws.com/media/images/patagonia_item_2.png" />
+          <span>Women Ridge Flow Shirt</span> <br/>
+          <span>₩89,000</span>
+        </div>
+        <div class="card" >
+          <img src="https://media-sparta.s3.ap-northeast-2.amazonaws.com/media/images/patagonia_item_3.png" />
+          <span>Women All Seasons Hemp Canvas Shorts</span> <br/>
+          <span>₩119,000</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
 </html>
